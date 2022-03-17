@@ -1,0 +1,89 @@
+<form [formGroup]="myForm">
+  <div class="grid p-1">Value: {{ myForm.value | json }}</div>
+  <hr />
+  <div class="grid">
+    <div class="col">
+      <span class="p-float-label mr-6">
+        <input
+          id="email"
+          type="text"
+          pInputText
+          placeholder="email"
+          formControlName="email"
+          class="mr-3"
+        />
+        <label for="email" class="pr-1">Email</label>
+      </span>
+    </div>
+    <div class="col-1"></div>
+    <div class="col">
+      <p-button
+        label="Add Phone Number"
+        (onClick)="addPhone()"
+        icon="pi pi-phone"
+        iconPos="left"
+        class="pl-2"
+      ></p-button>
+    </div>
+  </div>
+  <div class="grid p-1">
+    <div class="col">
+      <div formArrayName="phones">
+        <div
+          class="grid col p-1"
+          *ngFor="let phone of phoneForms.controls; let i = index"
+          [formGroupName]="i"
+        >
+          <span class="p-float-label mr-6">
+            <input
+              id="area"
+              type="text"
+              pInputText
+              placeholder="area"
+              formControlName="area"
+              class="mr-3"
+            />
+            <label for="area" class="pr-1">Area</label>
+          </span>
+
+          <span class="p-float-label mr-6">
+            <input
+              id="prefix"
+              type="text"
+              pInputText
+              placeholder="prefix"
+              formControlName="prefix"
+              class="mr-3"
+            />
+            <label for="prefix" class="pr-1">Prefix</label>
+          </span>
+
+          <span class="p-float-label mr-6">
+            <input
+              id="line"
+              type="text"
+              pInputText
+              placeholder="line"
+              formControlName="line"
+              class="mr-3"
+            />
+            <label for="line" class="pr-1">Line</label>
+          </span>
+
+          <p-button
+            label="Delete"
+            (onClick)="deletePhone(i)"
+            icon="pi pi-trash"
+            iconPos="right"
+          ></p-button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p-button
+    label="Submit"
+    (onClick)="onSubmit()"
+    icon="pi pi-send"
+    iconPos="left"
+  ></p-button>
+</form>
