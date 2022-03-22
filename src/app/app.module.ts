@@ -8,16 +8,24 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 
 // Components
+import { MainPageComponent } from "./pages/main-page/main-page.component";
 import { DialogComponent } from "./components/dialog/dialog.component";
 import { DynamicFormComponent } from "./components/dynamic-form/dynamic-form.component";
+import { DecimalPipeFormComponent } from "./components/decimalPipe/decimal-pipe.component";
 
 // PrimeNG Imports
 import { PrimeNGModule } from "./primeNG.module";
 import { MessageService } from "primeng/api";
-import { CommonModule } from "@angular/common";
+import { CommonModule, DecimalPipe } from "@angular/common";
 
 @NgModule({
-  declarations: [AppComponent, DialogComponent, DynamicFormComponent],
+  declarations: [
+    AppComponent,
+    DialogComponent,
+    DynamicFormComponent,
+    DecimalPipeFormComponent,
+    MainPageComponent,
+  ],
   imports: [
     AppRoutingModule,
     CommonModule,
@@ -29,7 +37,7 @@ import { CommonModule } from "@angular/common";
     HttpClientModule,
     PrimeNGModule,
   ],
-  providers: [MessageService],
+  providers: [MessageService, DecimalPipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
