@@ -1,15 +1,15 @@
-import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, FormArray, FormControl } from "@angular/forms";
-import { DecimalPipe } from "@angular/common";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { DecimalPipe } from '@angular/common';
 
 @Component({
-  selector: "app-decimal-pipe-form",
-  templateUrl: "./decimal-pipe.component.html",
-  styleUrls: ["./decimal-pipe.component.scss"],
+  selector: 'app-decimal-pipe-form',
+  templateUrl: './decimal-pipe.component.html',
+  styleUrls: ['./decimal-pipe.component.scss'],
 })
 export class DecimalPipeFormComponent implements OnInit {
   myForm: FormGroup;
-  decimalPipeLimit: string = "1.2-2";
+  decimalPipeLimit = '1.2-2';
 
   constructor(private fb: FormBuilder, private decimalPipe: DecimalPipe) {}
 
@@ -37,26 +37,5 @@ export class DecimalPipeFormComponent implements OnInit {
    */
   getControl(controlName: string) {
     return this.myForm.get(controlName) as FormControl;
-  }
-
-  get phoneForms() {
-    return this.myForm.get("phones") as FormArray;
-  }
-
-  addPhone() {
-    const phone = this.fb.group({
-      area: [],
-      prefix: [],
-      line: [],
-    });
-    this.phoneForms.push(phone);
-  }
-
-  deletePhone(i) {
-    this.phoneForms.removeAt(i);
-  }
-
-  onSubmit(): void {
-    alert("Submitted!");
   }
 }
