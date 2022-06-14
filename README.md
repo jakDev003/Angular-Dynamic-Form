@@ -1,5 +1,8 @@
 # AngularPlayground
 
+View this project live here: https://62a8c90d6982be1b6412643f--lucent-medovik-6a6423.netlify.app/
+[![Netlify Status](https://api.netlify.com/api/v1/badges/7b03a6a5-176a-491e-ace3-297344e3348f/deploy-status)](https://app.netlify.com/sites/lucent-medovik-6a6423/deploys)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.29.
 
 ## Development server
